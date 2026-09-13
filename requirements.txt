@@ -1,0 +1,107 @@
+pandas==2.3.3
+numpy==2.4.6  # numba (a shap dependency) caps numpy<2.5; don't bump past 2.4.x without checking shap/numba
+requests==2.34.2
+
+# LLM provider SDKs
+openai==2.44.0
+tiktoken==0.9.0  # OpenAI tokenizer, used by 14_advanced/03_llm_examples/tiktoken_tokenization_example.py
+ollama==0.6.2
+google-generativeai==0.8.6
+cohere==7.0.5
+boto3==1.43.40
+
+# Agent frameworks
+openai-agents==0.17.7
+crewai==0.203.2
+autogen-agentchat==0.7.5
+autogen-ext[openai]==0.7.5
+autogen-ext[anthropic]==0.7.5
+google-adk==2.3.0
+phidata==2.7.10
+
+# LangChain / LangGraph ecosystem (pinned to the pre-1.0 line since the
+# repo's scripts use the 0.x APIs; langchain-core>=1.0 breaks them)
+langchain==0.3.30
+langchain-core==0.3.86
+langchain-community==0.3.31
+beautifulsoup4==4.15.0  # required by WebBaseLoader (14_advanced/05_langchain/document_loaders.py)
+langchain-experimental==0.3.4  # for SemanticChunker; 0.4.x+ forces langchain-core>=1.0, breaking the pre-1.0 pin above
+langsmith==0.9.7  # for @traceable/Client (14_advanced/05_langchain/langsmith_tracing.py)
+langchain-openai==0.3.35
+langchain-huggingface==0.3.1
+langchain-text-splitters==0.3.11
+langchain-aws==0.2.35
+langchain-chroma==0.2.6
+langchain-ollama==0.3.10
+langchain-tavily==0.2.17
+tavily-python==0.7.26
+google-search-results==2.4.2  # SerpApi client, used for real Google Flights data (14_advanced/08_langgraph_cycles_HIL_persistence/parallel_trip_planner_send_api.py)
+langgraph==0.6.11
+langgraph-checkpoint==2.1.2  # langgraph-checkpoint-sqlite 2.0.11 calls JsonPlusSerializer.dumps(), removed in langgraph-checkpoint 3.x - pin below that or SQLite-backed checkpointing breaks
+langgraph-checkpoint-sqlite==2.0.11
+langserve==0.3.3
+langfuse==4.13.0
+langchain-google-genai==2.0.8  # pinned below latest (like langchain-core) since 2.1.x+ needs google-ai-generativelanguage>=0.7, which conflicts with google-generativeai==0.8.6's hard pin of 0.6.15; 3.0.0+ needs langchain-core>=1.0
+
+# MCP
+mcp==1.28.1
+fastmcp==3.4.4
+mcp-server-sqlite==2025.4.25  # official reference SQLite MCP server, used by 6_mcp/6_13
+
+# Vector stores / retrieval / embeddings
+chromadb  # crewai hard-pins json-repair==0.25.2 which forces chromadb~=1.1.0; don't bump without checking crewai
+faiss-cpu==1.14.3
+qdrant-client==1.18.0
+pinecone==9.1.0
+sentence-transformers==5.6.0
+llama-index==0.14.23
+llama-index-vector-stores-chroma==0.5.5
+umap-learn==0.5.12
+
+# RAG evaluation
+ragas==0.4.3  # used by 15_real/ragas_evaluation.py
+deepeval  # used by 15_real/deepeval_evaluation.py
+
+# Voice / audio
+sounddevice==0.5.5  # microphone capture, used by 15_real/voice_assistant_whisper_langchain.py ("mic" mode)
+soundfile==0.14.0  # WAV file I/O, used by the same script
+
+# Data / ML / explainability
+scikit-learn==1.9.0
+shap==0.52.0
+lime==0.2.0.1
+joblib==1.5.3
+matplotlib==3.11.0
+datasets==5.0.0
+yfinance==1.5.1
+
+# Document / file handling
+pypdf==6.14.2
+pdfplumber==0.11.10
+Pillow==12.3.0
+reportlab==5.0.0
+graphviz==0.21
+
+# Web frameworks
+flask==3.1.3
+fastapi==0.139.0
+uvicorn==0.50.0
+
+# Google APIs (Sheets/OAuth demos)
+google-api-python-client==2.198.0
+google-auth==2.55.1
+
+# Utilities
+python-dotenv==1.2.2
+pydantic==2.13.4
+nest_asyncio==1.6.0
+ipinfo==5.6.0
+streamlit>=1.32
+langchain>=0.2
+langchain-community>=0.2
+langchain-openai>=0.1
+pypdf>=4.0
+faiss-cpu>=1.8
+openai>=1.30
+python-dotenv>=1.0
+chromadb>=0.5

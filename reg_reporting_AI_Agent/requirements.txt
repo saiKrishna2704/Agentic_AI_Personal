@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pandas
+openpyxl
+tabulate
+python-docx
+openai
+python-dotenv
+streamlit
+requests

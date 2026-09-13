@@ -3,3 +3,6 @@
 __pycache__/
 *.tmp
 .env
+.venv
+venv
+myvenv
